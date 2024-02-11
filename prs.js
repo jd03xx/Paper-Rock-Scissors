@@ -41,6 +41,9 @@ function getComputerChoice() {
 
 //Function to determine winner
 function compareThrows(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return 'It\'s a Tie!';
+  }
   if (userChoice === "rock") {
     if (computerChoice === "paper") {
       return "Computer Wins!";
