@@ -15,7 +15,19 @@ function getUserChoice(userChoice) {
 //Function to get computers choice
 function getComputerChoice() {
   let computerChoice = Math.floor(Math.random() * 3);
-  if (computerChoice === 0) {
+
+  switch(computerChoice) {
+    case 0:
+      return 'rock';
+    case 1:
+      return 'paper';
+    case 2: 
+      return 'scissors';
+    default:
+      console.log('ERROR IN COMPUTER CHOICE');
+      break;
+  };
+  /* if (computerChoice === 0) {
     computerChoice = "rock";
   } else if (computerChoice === 1) {
     computerChoice = "paper";
@@ -24,12 +36,38 @@ function getComputerChoice() {
   } else {
     return "ERROR IN COMPUTER CHOICE";
   }
-  return computerChoice;
+  return computerChoice; */
 }
 
 //Function to determine winner
 function compareThrows(userChoice, computerChoice) {
-  if (
+  if (userChoice === computerChoice) {
+    return 'It\'s a Tie!';
+  }
+  if (userChoice === "rock") {
+    if (computerChoice === "paper") {
+      return "Computer Wins!";
+    } else {
+      return "User Wins!";
+    }
+  }
+  if (userChoice === 'paper'){
+    if (computerChoice === 'scissors'){
+      return 'Computer Wins!';
+    } else {
+      return 'User Wins!';
+    };
+  };
+  if (userChoice === 'scissors') {
+    if (computerChoice === 'rock'){
+      return 'Computer Wins!';
+    } else {  
+      return 'User Wins!';
+    };
+  };
+};
+
+  /* if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "paper" && computerChoice === "rock") ||
     (userChoice === "scissors" && computerChoice === "paper")
@@ -43,8 +81,8 @@ function compareThrows(userChoice, computerChoice) {
     return `User threw ${userChoice} and Computer threw ${computerChoice}...COMPUTER WINS!!!`;
   } else {
     return "It's a TIE!";
-  }
-}
+  } */
+
 
 function playGame(userChoice, computerChoice) {
   console.log(compareThrows(userChoice, computerChoice));
